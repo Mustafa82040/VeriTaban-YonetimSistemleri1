@@ -1,0 +1,146 @@
+1.Geleneksel dosyalama sistemlerinin çalışma şeklini açıklayarak bildiğniz bir programlama dili yardımıyla txt dosyadan veri okumak ve veri yazmak için bir uygulama geliştiriniz
+
+Öğrenci ID------Ad Soyad------Telefon
+1311322         xy            0551.. 
+1213132         xy            0545..
+1231133         xy            0545..
+
+Öğrenci ID:Primary key(Birincil Anahtar)
+
+Ders Kodu------Ders Adı------Ders krd
+01               x              1
+02               y              2
+03               z              4
+
+Ders Kodu:Primary key(Birincil Anahtar)
+
+Ders kodu------Öğrenci ID------Aldığı not
+01              1311322           40
+02              1213132           60
+03              1231133           75
+
+Ders Kodu:Foreign Key(Yabancı Anahatr)2.Tabloya bağlı
+Öğrenci ID:Foreign Key(Yabancı Anahtar)1.Tabloya bağlı
+
+2.Geleneksel dosyalama sistemleriyle veritabanı yönetim sistemlerinin benzerlik ve farklılıklarını açıklayınız.
+Benzerlikler
+=iki sistemde de veriyi depolamak ve düzenlemek için kullanmamızı sağlar.
+=iki sistemde de kullanıcıların verilere erişmesini sağlamasına yardımcı olur ve benzerlik olarak bunları diyebiliriz.
+Farklılıklar
+=Geleneksel dosyalama sistemleri,verileri dosyalar halinde düz bir yapıda depolar;veritabanı yönetim sistemlerinde ise daha karmaşık ve ilişkisel bir yapılar kullanır.
+=DMBS'ler Veritabanı yönetim sistemlerin de daha karmaşık ve analiz işlemlerimizi yapabilmemize yardımcı oluyor fakat gelenekselde bu tür işlemleri sınırlı bir şekilde destekliyor.
+=Dosyalama sistemlerinde veriye erişim çoğunlukla sıralı ve dosya tabanlıdır;veritabanlarında ise SQL gibi dillerde daha esnek ve hızlı erişim sağlar.
+=Veritabanları,veri güvenliğini ve toplumunu sağlamak için daha çok özellik ve daha gelişmiş özellik sunar.(Erişim kontrolü örneğin)
+=Dosyalama sistemleri genellikle tek kullanıcılı erişim ile sınırlıdır fakat veritabanları birden fazla kullanıcı tarafından eşzamanlı erişim imkanı sağlar.
+
+
+3.VTSYnin geleneksel sisteme göre üstün özelliklerini açıklayınız.
+=Hız ve verimlilik açısından avantajlı
+=Gerçek zamanlı izleme tespit açısından önemlidir.
+=Veri girişi otomatikleştirildiği için daha doğru ve güvenilir.
+=Kolay raporlama ve analiz
+=Maliyet açısından daha avantajlıdır.
+=Bakım ve onarım yönetimi dijital ortamda yönetilinebilir.
+=Varlıkların yerleri ve durumu hakkında anlık bilgi almak daha mümkün.
+=Kolay erişim ve entegre edilebilirlik
+
+
+
+4.Veritabanının görevini açıklayarak kullanıldığ alanlara örnek veriniz.
+=Veritabanı,bilgilerin düzenli bir şekilde depolandığı,yönetildiği ve gerektiğinde erişebildiği dijital sistematik bir ortamdır.Temel amacı veriyi güvenli,verimli ve düzenli bir şekilde saklamaktır.
+=Kullanıdığı alanlar 
+=e-ticaret siteleri,bankacılık ve finans,sağlık hizmetleri,eğitim kurumları,sosyal medya,stok yönetimi vs
+
+
+
+5.Tablo,satır ve sütun kavramlarını açıklayınız.
+=Tablo=Veritabanında veriler,genellikle tablolarda saklanır.Tablo,benzer türdeki verilerin organize bir şekilde depolandığı yapıya denir.Her tablo satır ve sutünlardan oluşur ve belirli bir konu veya veri kümesi hakkında bilgi içerir.
+=Satır=Tablonun her bir kayıt veya veri girdisi olarak tanımlayabiliriz.Satır beirili bir veriye dair tüm blgilerin bir arada tutulduğu bir birimdir.Her satır,otablonun her bir sütunu için bir değer içerir.
+=Sütun=Tablonun her bir veri türünü veya özeliğini temsil eder.Her sütun,tablodaki belirli bir bilgi türünü tutar.Sütunlar,her satır için aynı türde veri saklar.
+ÖZETLE
+TABLO=belirli bir veri kümesini tutar.
+SATIR=tablodaki her bir kaydı temsil eder.
+SÜTUN=her kaydın(satırın)sahip olduğu özellikleri veya veri türlerini tanımlamamıza yardımcı olur.
+
+
+
+6.Birincil anahtar ve yabancıl anahtar kavramlarını ve farklılıklarını açıklayınız.
+BİRİNCİL ANAHTAR(Primary key)=bir tablodaki her satırın benzersiz olmasını sağlayan özel bir alandır.Her satırın birbirinden ayrılmasını ve tanımlamasını sağlar.
+YABANCI ANAHTAR(FOREİGN KEY)=Bir tablodaki bir sütunun başka bir tablodaki birincil anahtar ile ilişki kurmasını sağlayan alandır.İki tablonun birbiriyle bağlantılı olması gerekir.
+Birincil anahtar
+=Tablodaki her satırı benzersiz şekilde tanımlar.
+=Her satırda birincil anahtar benzersiz olmalıdır.
+=NULL değerini kabul etmez.
+=Bir tablodaki her satır için tek bir birincil anahtar var.
+YABANCI ANAHTAR
+=İki tablo arasındaki ilişkiyi kurar.
+=Aynı yabancı anahtar değeri birçok satırda olabilir.
+=NULL değeri kabul edebilir.
+=Yabancı anahtar başka bir tablodaki birincil anahtara başvurur.
+
+
+
+7.Veritabanı kullanıcı türleri nelerdir?
+=Uygulama kullanıcıları(Aplication Users)!
+=Veritabanı Geliştiricisi(Database Developer)!
+=Sistem kullanıcıları(System Users)!
+=Veritabanı Denetçisi(Database Auditor)!
+=Veritabanı Kullanıcıları(end users)!
+=Veritabanı Yöneticisi(Database Administrator - DBA)!
+
+
+8.Örnek bir veritabanı için kullanıcılar belirleyerek yetkilendirmelerini şematik olarak gösteriniz.(Bu soruyu yapamadım)
+
+
+
+
+
+9.Veritabanı ile VTSYnin farkı açıklayınız.
+=Veritabanı,verilerin depolandığı yerken,VTSY bu veriler üzerinde işlemler yapmamızı sağlar en önemli fark bunlardır diyebiliriz.
+=Veritabanı sadece veri içerirken,VTSY,veritabanlarını yönetmek için kullanılan bir araçtır.
+
+
+
+10.İlişkisel veri modelini açıklayınız.
+=İlişkisel veri modeli,verilerin tablolar şeklinde düzenlendiği ve bu tablolar arasındaki ilişkilerin tanımlandığı bir veri modelidir.Veritabanı yönetim sistemlerinde(DBMS) yaygın olarak kullanılır ve verilerin mantıklı ve verimli bir şekilde çalışmasını sağlar.
+
+
+
+
+11.Öğrenci bilgi sistemi için kullanılıcak veritabanı,tablolar ve tablolar arasındaki ilişkileri belirleyiniz.
+ÖĞRENCİLER TABLOSU:
+=Öğrenci_ID=Birincil anahtar,her öğrenci için farklı  kimlik
+=Adı,Soyadı,Doğum Tarihi,Cinsiyet=Öğrencinin kişisel bilgileri içerir
+
+DERSLER TABLOSU:
+=Ders_ID=Birincil anahtar,her ders için farklı bir kimlik.
+=Ders Adı,Kredi=Dersin adı ve kredi değeri.
+=Öğretim Üyesi_ID=Dersin öğretim üyesine referans(Yabancı anahtar)
+
+ÖĞRETİM ÜYELERİ TABLOSU:
+=Öğretim Üyesi_ID=Birincil anahtar,her öğretim üyesine farklı bir kimlik
+=Adı,Soyadı,Departman=Öğretim üyesinin kişisel bilgileri ve hangi bölümde çalıştığı
+
+ÖĞRENCİ DERS KAYITLARI TABLOSU:
+=Öğrenci_ID=Öğrenciye ait yabancı anahtar,öğrenciyi tanımlar.
+=Ders_ID=Derse ait yabancıaahtar,hang derse kaydolduğunu belirtir.
+=Yıl,Dönem=Dersin hangi yılda ve dönemde alındığnı belirtir.
+=Not:Öğrencinin dersin notu
+
+SINAVLAR TABLOSU:
+=Sınav_ID=Birincil anahtar,her sınavın farklı kimliği
+=Ders_ID=Sınavın hang derse ait olduğnu belirten yabancı anahtar
+=Sınav Tarih,Sınav Türü=Sınavın tarihi ve türü
+
+SINAV SONUÇLARI TABLOSU:
+Öğrenci_ID=Öğrenciye ait yabancı anahtar
+Sınav_ID=Sınav kimliği,hangi sınav olduğnu belirtir
+Not=Öğrecinin sınavdaki aldığı puan
+
+TABLOLAR ARASINDAKİ İLİŞKİLER
+=Bir ders,birden fazla öğrenci tarafından alınabilir.
+=Bir öğretim üyesi,bir veya daha fazla ders verebilir.
+=Bir öğrenci birden fazla sınav sonucuna sahip olabilir.
+=Her dersin bir veya daha fazla sınavı olabilir.
+=Bir öğrenci,bir sınavda bir not alır.
+=Bir öğrencinin birden fazla ders kaydına sahip olabilir.
