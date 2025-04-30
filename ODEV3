@@ -1,0 +1,69 @@
+1.Satış yapılan müşterilerin isimlerini listelemek için gerekli SQL ifadesini yazınız
+SELECT DISTINCT Müsteri.Madi, Müsteri.Msoyadi
+FROM Müsteri
+INNER JOIN Satis ON Müsteri.Mno = Satis.Mno;
+
+
+2.Hangi müşteriden hangi aracın alındığını listelemek için gerekli SQL ifadesini yazınız
+SELECT Müsteri.Madi, Müsteri.Msoyadi, Arac.Marka, Arac.Model
+FROM Alim
+JOIN Müsteri ON Alim.Mno = Müsteri.Mno
+JOIN Arac ON Alim.Aracno = Arac.Aracno
+
+
+3.Her bir müşteriden alınan araçların sayısını listelemek için gerekli SQL ifadesini yazınız
+SELECT Müsteri.Madi, Müsteri.Msoyadi, COUNT(Alim.Aracno) AS Alinan_Arac_Sayisi
+FROM Alim
+JOIN Müsteri ON Alim.Mno = Müsteri.Mno
+GROUP BY Müsteri.Madi, Müsteri.Msoyadi
+
+
+4.Satılan araçların marka ve modelini bulmak için gerekli SQL ifadesini yazınız
+SELECT DISTINCT Arac.Marka, Arac.Model
+FROM Arac
+JOIN Satis ON Arac.Aracno = Satis.Aracno;
+
+5.Toplam satış ve toplam alım tutarlarını ve bunların farkını bulmak için gerekli SQL ifadesini yazınız
+SELECT 
+  SELECT 
+  (SELECT SUM(Sfiyat) FROM Satis) AS Toplam_Satis_Tutari
+  (SELECT SUM(Afiyat) FROM Alim) AS Toplam_Alim_Tutari
+  (SELECT SUM(Sfiyat) FROM Satis) - (SELECT SUM(Afiyat) FROM Alim) AS Fark;
+
+
+6.Hiç satışı yapılmamış araçları listelemek için gerekli SQL ifadesini yazınız.
+SELECT Marka, Model
+FROM Arac
+WHERE Aracno NOT IN (SELECT Aracno FROM Satis);
+
+7.Her aracın ortalama satış tutarını bulmak için gerekli SQL ifadesini yazınız
+SELECT Arac.Marka, Arac.Model, AVG(Satis.Sfiyat) AS Ortalama_Satis_Fiyati
+FROM Satis
+JOIN Arac ON Satis.Aracno = Arac.Aracno
+GROUP BY Arac.Marka, Arac.Model;
+
+
+8.Alımı ve satışı yapılan tüm araçların marka, model ve alım-satış sayısını listelemek için gerekli SQL ifadesiniz yazınız
+SELECT Arac.Marka, Arac.Model,
+       (SELECT COUNT(*) FROM Alim WHERE Alim.Aracno = Arac.Aracno) AS Alim_Sayisi
+       (SELECT COUNT(*) FROM Satis WHERE Satis.Aracno = Arac.Aracno) AS Satis_Sayisi
+FROM Arac
+WHERE Arac.Aracno IN (SELECT Aracno FROM Alim)
+   OR Arac.Aracno IN (SELECT Aracno FROM Satis);
+
+
+9.20000’den fazla tutara satılan araçları kimlerin hangi aracı aldığını bulmak için gerekli SQL ifadesini yazınız
+SELECT Müsteri.Madi, Müsteri.Msoyadi, Arac.Marka, Arac.Model, Satis.Sfiyat
+FROM Satis
+JOIN Müsteri ON Satis.Mno = Müsteri.Mno
+JOIN Arac ON Satis.Aracno = Arac.Aracno
+WHERE Satis.Sfiyat > 20000;
+
+
+10.	Tokatta bulunan müşterilere satışı yapılan araçları listelemek için gerekli SQL ifadesini yazınız
+SELECT DISTINCT Arac.Marka, Arac.Model
+FROM Satis
+JOIN Müsteri ON Satis.Mno = Müsteri.Mno
+JOIN Arac ON Satis.Aracno = Arac.Aracno
+WHERE Müsteri.Madres LIKE '%Tokat%';
+
