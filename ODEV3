@@ -26,8 +26,8 @@ JOIN Satis ON Arac.Aracno = Satis.Aracno;
 5.Toplam satış ve toplam alım tutarlarını ve bunların farkını bulmak için gerekli SQL ifadesini yazınız
 SELECT 
   SELECT 
-  (SELECT SUM(Sfiyat) FROM Satis) AS Toplam_Satis_Tutari
-  (SELECT SUM(Afiyat) FROM Alim) AS Toplam_Alim_Tutari
+  (SELECT SUM(Sfiyat) FROM Satis) AS Toplam_Satis_Tutari, 
+  (SELECT SUM(Afiyat) FROM Alim) AS Toplam_Alim_Tutari, 
   (SELECT SUM(Sfiyat) FROM Satis) - (SELECT SUM(Afiyat) FROM Alim) AS Fark;
 
 
@@ -45,7 +45,7 @@ GROUP BY Arac.Marka, Arac.Model;
 
 8.Alımı ve satışı yapılan tüm araçların marka, model ve alım-satış sayısını listelemek için gerekli SQL ifadesiniz yazınız
 SELECT Arac.Marka, Arac.Model,
-       (SELECT COUNT(*) FROM Alim WHERE Alim.Aracno = Arac.Aracno) AS Alim_Sayisi
+       (SELECT COUNT(*) FROM Alim WHERE Alim.Aracno = Arac.Aracno) AS Alim_Sayisi, 
        (SELECT COUNT(*) FROM Satis WHERE Satis.Aracno = Arac.Aracno) AS Satis_Sayisi
 FROM Arac
 WHERE Arac.Aracno IN (SELECT Aracno FROM Alim)
